@@ -1,0 +1,1576 @@
+// 20210307143603
+// http://10.110.0.20:8981/solr/product_profile/select?defType=edismax&facet=on&fq=orgID_s:fa673540-57ba-4e02-8c16-28ee0513ae38&q=Compete%20Hoodie&fq=catname_ss:(%22Tops%22,)&qf=name_s%20description_t%20&facet.query=price_d:[0%20TO%2020]&facet.query=price_d:[21%20TO%2060]&facet.query=price_d:[61%20TO%20100]&facet.query=price_d:[101%20TO%20100]&facet.query=gender_ss:(%22male%22)&facet.query=gender_ss:(%22female%22)
+
+{
+  "responseHeader": {
+    "zkConnected": true,
+    "status": 0,
+    "QTime": 57,
+    "params": {
+      "facet.query": [
+        "price_d:[0 TO 20]",
+        "price_d:[21 TO 60]",
+        "price_d:[61 TO 100]",
+        "price_d:[101 TO 100]",
+        "gender_ss:(\"male\")",
+        "gender_ss:(\"female\")"
+      ],
+      "q": "Compete Hoodie",
+      "defType": "edismax",
+      "qf": "name_s description_t ",
+      "fq": [
+        "orgID_s:fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "catname_ss:(\"Tops\",)"
+      ],
+      "facet": "on"
+    }
+  },
+  "response": {
+    "numFound": 22,
+    "start": 0,
+    "docs": [
+      {
+        "name_s": "Bruno Compete Hoodie",
+        "cannoical_url_s": "http://magento.ecomtics.nl/bruno-compete-hoodie.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/bruno-compete-hoodie.html",
+        "smallImage_s": "/m/h/mh03-black_main_1.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0,
+          63.0
+        ],
+        "doc_id_s": "admin_100.0",
+        "namel_t": "bruno compete hoodie",
+        "description_t": "Stay comfortable and stay in the race no matter what the weather's up to. The Bruno Compete Hoodie's water-repellent exterior shields you from the elements, while advanced fabric technology inside wicks moisture to keep you dry. • Full zip black hoodie pullover. • Adjustable drawstring hood. • Ribbed cuffs/waistband. • Kangaroo pocket. • Machine wash/dry.",
+        "pupdated_at_dt": "2020-07-25T15:33:57Z",
+        "price_d": 63.0,
+        "namel_s": "bruno compete hoodie",
+        "sku_s": "MH03",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:33:57Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "MH03-XS-Black",
+          "MH03-XS-Blue",
+          "MH03-XS-Green",
+          "MH03-S-Black",
+          "MH03-S-Blue",
+          "MH03-S-Green",
+          "MH03-M-Black",
+          "MH03-M-Blue",
+          "MH03-M-Green",
+          "MH03-L-Black",
+          "MH03-L-Blue",
+          "MH03-L-Green",
+          "MH03-XL-Black",
+          "MH03-XL-Blue",
+          "MH03-XL-Green"
+        ],
+        "product_id_d": 100.0,
+        "thumbImage_s": "/m/h/mh03-black_main_1.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "MH03-XS-Black",
+          "MH03-XS-Blue",
+          "MH03-XS-Green",
+          "MH03-S-Black",
+          "MH03-S-Blue",
+          "MH03-S-Green",
+          "MH03-M-Black",
+          "MH03-M-Blue",
+          "MH03-M-Green",
+          "MH03-L-Black",
+          "MH03-L-Blue",
+          "MH03-L-Green",
+          "MH03-XL-Black",
+          "MH03-XL-Blue",
+          "MH03-XL-Green"
+        ],
+        "product_id_s": "100.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/m/h/mh03-black_main_1.jpg",
+        "name_t": "Bruno Compete Hoodie",
+        "doc_index_dt": "2020-07-27T18:33:13.584Z",
+        "gender_ss": [
+          "male"
+        ],
+        "categories_ss": [
+          "36",
+          "12",
+          "2",
+          "15"
+        ],
+        "leaf_categories_ss": [
+          "36",
+          "15"
+        ],
+        "parentCategories_ss": [
+          "7",
+          "11",
+          "1",
+          "12"
+        ],
+        "childCategories_ss": [
+          "14",
+          "15",
+          "16",
+          "17",
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41"
+        ],
+        "catname_ss": [
+          "Eco Friendly",
+          "Tops",
+          "Default Category",
+          "Hoodies & Sweatshirts"
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385710716289024
+      },
+      {
+        "name_s": "Hera Pullover Hoodie",
+        "cannoical_url_s": "http://magento.ecomtics.nl/hera-pullover-hoodie.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/hera-pullover-hoodie.html",
+        "smallImage_s": "/w/h/wh02-blue_main_2.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0
+        ],
+        "doc_id_s": "admin_1066.0",
+        "namel_t": "hera pullover hoodie",
+        "description_t": "Get ready to rule the studio and dominate the yoga mat in the Hera Pullover Hoodie, a cozy yet classy look for any level of yogi. • Teal with purple stiching. • Hoodie pullover. • Snug fit.",
+        "pupdated_at_dt": "2020-07-25T15:34:21Z",
+        "price_d": 48.0,
+        "namel_s": "hera pullover hoodie",
+        "sku_s": "WH02",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:34:21Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "WH02-XS-Blue",
+          "WH02-XS-Green",
+          "WH02-XS-Orange",
+          "WH02-S-Blue",
+          "WH02-S-Green",
+          "WH02-S-Orange",
+          "WH02-M-Blue",
+          "WH02-M-Green",
+          "WH02-M-Orange",
+          "WH02-L-Blue",
+          "WH02-L-Green",
+          "WH02-L-Orange",
+          "WH02-XL-Blue",
+          "WH02-XL-Green",
+          "WH02-XL-Orange"
+        ],
+        "product_id_d": 1066.0,
+        "thumbImage_s": "/w/h/wh02-blue_main_2.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "WH02-XS-Blue",
+          "WH02-XS-Green",
+          "WH02-XS-Orange",
+          "WH02-S-Blue",
+          "WH02-S-Green",
+          "WH02-S-Orange",
+          "WH02-M-Blue",
+          "WH02-M-Green",
+          "WH02-M-Orange",
+          "WH02-L-Blue",
+          "WH02-L-Green",
+          "WH02-L-Orange",
+          "WH02-XL-Blue",
+          "WH02-XL-Green",
+          "WH02-XL-Orange"
+        ],
+        "product_id_s": "1066.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/w/h/wh02-blue_main_2.jpg",
+        "name_t": "Hera Pullover Hoodie",
+        "doc_index_dt": "2020-07-27T18:39:23.492Z",
+        "gender_ss": [
+          "female"
+        ],
+        "categories_ss": [
+          "21",
+          "24",
+          "30",
+          "2"
+        ],
+        "leaf_categories_ss": [
+          "24",
+          "30"
+        ],
+        "parentCategories_ss": [
+          "20",
+          "21",
+          "29",
+          "1"
+        ],
+        "childCategories_ss": [
+          "23",
+          "24",
+          "25",
+          "26",
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41"
+        ],
+        "catname_ss": [
+          "Tops",
+          "Hoodies & Sweatshirts",
+          "Women Sale",
+          "Default Category"
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385711221702658
+      },
+      {
+        "name_s": "Chaz Kangeroo Hoodie",
+        "cannoical_url_s": "http://magento.ecomtics.nl/chaz-kangeroo-hoodie.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/chaz-kangeroo-hoodie.html",
+        "smallImage_s": "/m/h/mh01-gray_main_1.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0,
+          52.0
+        ],
+        "doc_id_s": "admin_68.0",
+        "namel_t": "chaz kangeroo hoodie",
+        "description_t": "Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat. • Two-tone gray heather hoodie. • Drawstring-adjustable hood. • Machine wash/dry.",
+        "pupdated_at_dt": "2020-07-25T15:33:57Z",
+        "price_d": 52.0,
+        "namel_s": "chaz kangeroo hoodie",
+        "sku_s": "MH01",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:33:57Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "MH01-XS-Black",
+          "MH01-XS-Gray",
+          "MH01-XS-Orange",
+          "MH01-S-Black",
+          "MH01-S-Gray",
+          "MH01-S-Orange",
+          "MH01-M-Black",
+          "MH01-M-Gray",
+          "MH01-M-Orange",
+          "MH01-L-Black",
+          "MH01-L-Gray",
+          "MH01-L-Orange",
+          "MH01-XL-Black",
+          "MH01-XL-Gray",
+          "MH01-XL-Orange"
+        ],
+        "product_id_d": 68.0,
+        "thumbImage_s": "/m/h/mh01-gray_main_1.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "MH01-XS-Black",
+          "MH01-XS-Gray",
+          "MH01-XS-Orange",
+          "MH01-S-Black",
+          "MH01-S-Gray",
+          "MH01-S-Orange",
+          "MH01-M-Black",
+          "MH01-M-Gray",
+          "MH01-M-Orange",
+          "MH01-L-Black",
+          "MH01-L-Gray",
+          "MH01-L-Orange",
+          "MH01-XL-Black",
+          "MH01-XL-Gray",
+          "MH01-XL-Orange"
+        ],
+        "product_id_s": "68.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/m/h/mh01-gray_main_1.jpg",
+        "name_t": "Chaz Kangeroo Hoodie",
+        "doc_index_dt": "2020-07-27T18:33:13.584Z",
+        "gender_ss": [
+          "male"
+        ],
+        "categories_ss": [
+          "15",
+          "2",
+          "12",
+          "36"
+        ],
+        "leaf_categories_ss": [
+          "15",
+          "36"
+        ],
+        "parentCategories_ss": [
+          "12",
+          "1",
+          "11",
+          "7"
+        ],
+        "childCategories_ss": [
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41",
+          "14",
+          "15",
+          "16",
+          "17"
+        ],
+        "catname_ss": [
+          "Hoodies & Sweatshirts",
+          "Default Category",
+          "Tops",
+          "Eco Friendly"
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385710933344256
+      },
+      {
+        "name_s": "Abominable Hoodie",
+        "cannoical_url_s": "http://magento.ecomtics.nl/abominable-hoodie.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/abominable-hoodie.html",
+        "smallImage_s": "/m/h/mh09-blue_main_1.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0,
+          69.0
+        ],
+        "doc_id_s": "admin_196.0",
+        "namel_t": "abominable hoodie",
+        "description_t": "It took CoolTech™ weather apparel know-how and lots of wind-resistant fabric to get the Abominable Hoodie just right. It's aggressively warm when it needs to be, while maintaining your comfort in milder climes. • Blue heather hoodie. • Relaxed fit. • Moisture-wicking. • Machine wash/dry.",
+        "pupdated_at_dt": "2020-07-25T15:34:00Z",
+        "price_d": 69.0,
+        "namel_s": "abominable hoodie",
+        "sku_s": "MH09",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:34:00Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "MH09-XS-Blue",
+          "MH09-XS-Green",
+          "MH09-XS-Red",
+          "MH09-S-Blue",
+          "MH09-S-Green",
+          "MH09-S-Red",
+          "MH09-M-Blue",
+          "MH09-M-Green",
+          "MH09-M-Red",
+          "MH09-L-Blue",
+          "MH09-L-Green",
+          "MH09-L-Red",
+          "MH09-XL-Blue",
+          "MH09-XL-Green",
+          "MH09-XL-Red"
+        ],
+        "product_id_d": 196.0,
+        "thumbImage_s": "/m/h/mh09-blue_main_1.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "MH09-XS-Blue",
+          "MH09-XS-Green",
+          "MH09-XS-Red",
+          "MH09-S-Blue",
+          "MH09-S-Green",
+          "MH09-S-Red",
+          "MH09-M-Blue",
+          "MH09-M-Green",
+          "MH09-M-Red",
+          "MH09-L-Blue",
+          "MH09-L-Green",
+          "MH09-L-Red",
+          "MH09-XL-Blue",
+          "MH09-XL-Green",
+          "MH09-XL-Red"
+        ],
+        "product_id_s": "196.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/m/h/mh09-blue_main_1.jpg",
+        "name_t": "Abominable Hoodie",
+        "doc_index_dt": "2020-07-27T18:33:13.584Z",
+        "gender_ss": [
+          "male"
+        ],
+        "categories_ss": [
+          "15",
+          "12",
+          "2"
+        ],
+        "leaf_categories_ss": [
+          "15"
+        ],
+        "parentCategories_ss": [
+          "12",
+          "11",
+          "1"
+        ],
+        "childCategories_ss": [
+          "14",
+          "15",
+          "16",
+          "17",
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41"
+        ],
+        "catname_ss": [
+          "Hoodies & Sweatshirts",
+          "Tops",
+          "Default Category"
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385710863089666
+      },
+      {
+        "name_s": "Prima Compete Bra Top",
+        "cannoical_url_s": "http://magento.ecomtics.nl/prima-compete-bra-top.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/prima-compete-bra-top.html",
+        "smallImage_s": "/w/b/wb04-blue_main_2.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0,
+          24.0
+        ],
+        "doc_id_s": "admin_1658.0",
+        "namel_t": "prima compete bra top",
+        "description_t": "Pull on the Prima Compete Bra Top and you'll love the fabric: soft, stretchy, and ultra lightweight. But you'll also love the racerback cut, for freer movement through all your athletic feats. ` • Colorblocked details. • Machine wash/line dry.",
+        "pupdated_at_dt": "2020-07-25T15:34:37Z",
+        "price_d": 24.0,
+        "namel_s": "prima compete bra top",
+        "sku_s": "WB04",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:34:37Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "WB04-XS-Blue",
+          "WB04-XS-Purple",
+          "WB04-XS-Yellow",
+          "WB04-S-Blue",
+          "WB04-S-Purple",
+          "WB04-S-Yellow",
+          "WB04-M-Blue",
+          "WB04-M-Purple",
+          "WB04-M-Yellow",
+          "WB04-L-Blue",
+          "WB04-L-Purple",
+          "WB04-L-Yellow",
+          "WB04-XL-Blue",
+          "WB04-XL-Purple",
+          "WB04-XL-Yellow"
+        ],
+        "product_id_d": 1658.0,
+        "thumbImage_s": "/w/b/wb04-blue_main_2.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "WB04-XS-Blue",
+          "WB04-XS-Purple",
+          "WB04-XS-Yellow",
+          "WB04-S-Blue",
+          "WB04-S-Purple",
+          "WB04-S-Yellow",
+          "WB04-M-Blue",
+          "WB04-M-Purple",
+          "WB04-M-Yellow",
+          "WB04-L-Blue",
+          "WB04-L-Purple",
+          "WB04-L-Yellow",
+          "WB04-XL-Blue",
+          "WB04-XL-Purple",
+          "WB04-XL-Yellow"
+        ],
+        "product_id_s": "1658.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/w/b/wb04-blue_main_2.jpg",
+        "name_t": "Prima Compete Bra Top",
+        "doc_index_dt": "2020-07-27T18:42:33.503Z",
+        "gender_ss": [
+          "female"
+        ],
+        "categories_ss": [
+          "26",
+          "2",
+          "21"
+        ],
+        "leaf_categories_ss": [
+          "26"
+        ],
+        "parentCategories_ss": [
+          "21",
+          "1",
+          "20"
+        ],
+        "childCategories_ss": [
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41",
+          "23",
+          "24",
+          "25",
+          "26"
+        ],
+        "catname_ss": [
+          "Bras & Tanks",
+          "Default Category",
+          "Tops"
+        ],
+        "product_vav_reco_ss": [
+          "Overnight Duffle",
+          "Nadia Elements Shell",
+          "Ingrid Running Jacket",
+          "Radiant Tee"
+        ],
+        "product_vav_reco_count_is": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385711523692544
+      },
+      {
+        "name_s": "Teton Pullover Hoodie",
+        "cannoical_url_s": "http://magento.ecomtics.nl/teton-pullover-hoodie.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/teton-pullover-hoodie.html",
+        "smallImage_s": "/m/h/mh02-black_main_1.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0,
+          70.0
+        ],
+        "doc_id_s": "admin_84.0",
+        "namel_t": "teton pullover hoodie",
+        "description_t": "This Teton Pullover Hoodie gives you more than laid-back style. It's equipped with moisture-wicking fabric to keep light and dry inside, especially in chilly-weather workouts. An elasticized hem lets you move about freely. • Black pullover hoodie. • Soft, brushed interior. • Front hand pockets. • Machine wash/dry.",
+        "pupdated_at_dt": "2020-07-25T15:33:57Z",
+        "price_d": 70.0,
+        "namel_s": "teton pullover hoodie",
+        "sku_s": "MH02",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:33:57Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "MH02-XS-Black",
+          "MH02-XS-Purple",
+          "MH02-XS-Red",
+          "MH02-S-Black",
+          "MH02-S-Purple",
+          "MH02-S-Red",
+          "MH02-M-Black",
+          "MH02-M-Purple",
+          "MH02-M-Red",
+          "MH02-L-Black",
+          "MH02-L-Purple",
+          "MH02-L-Red",
+          "MH02-XL-Black",
+          "MH02-XL-Purple",
+          "MH02-XL-Red"
+        ],
+        "product_id_d": 84.0,
+        "thumbImage_s": "/m/h/mh02-black_main_1.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "MH02-XS-Black",
+          "MH02-XS-Purple",
+          "MH02-XS-Red",
+          "MH02-S-Black",
+          "MH02-S-Purple",
+          "MH02-S-Red",
+          "MH02-M-Black",
+          "MH02-M-Purple",
+          "MH02-M-Red",
+          "MH02-L-Black",
+          "MH02-L-Purple",
+          "MH02-L-Red",
+          "MH02-XL-Black",
+          "MH02-XL-Purple",
+          "MH02-XL-Red"
+        ],
+        "product_id_s": "84.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/m/h/mh02-black_main_1.jpg",
+        "name_t": "Teton Pullover Hoodie",
+        "doc_index_dt": "2020-07-27T18:33:13.584Z",
+        "gender_ss": [
+          "male"
+        ],
+        "categories_ss": [
+          "2",
+          "12",
+          "15"
+        ],
+        "leaf_categories_ss": [
+          "15"
+        ],
+        "parentCategories_ss": [
+          "1",
+          "11",
+          "12"
+        ],
+        "childCategories_ss": [
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41",
+          "14",
+          "15",
+          "16",
+          "17"
+        ],
+        "catname_ss": [
+          "Default Category",
+          "Tops",
+          "Hoodies & Sweatshirts"
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385710835826688
+      },
+      {
+        "name_s": "Cassia Funnel Sweatshirt",
+        "cannoical_url_s": "http://magento.ecomtics.nl/cassia-funnel-sweatshirt.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/cassia-funnel-sweatshirt.html",
+        "smallImage_s": "/w/h/wh08-white_main_1.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0,
+          48.0
+        ],
+        "doc_id_s": "admin_1152.0",
+        "namel_t": "cassia funnel sweatshirt",
+        "description_t": "The casual Cassia Funnel Sweatshirt sports front angled pockets and a drawstring stretch funnel hoodie. A cowl front neck pairs with a tagless label at back neck. • White full zip hoodie with gray detail. • 65% Cotton/28% Nylon/7% Spandex. • Front slash pockets. • Tagless label at back neck.",
+        "pupdated_at_dt": "2020-07-25T15:34:23Z",
+        "price_d": 48.0,
+        "namel_s": "cassia funnel sweatshirt",
+        "sku_s": "WH08",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:34:23Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "WH08-XS-Orange",
+          "WH08-XS-Purple",
+          "WH08-XS-White",
+          "WH08-S-Orange",
+          "WH08-S-Purple",
+          "WH08-S-White",
+          "WH08-M-Orange",
+          "WH08-M-Purple",
+          "WH08-M-White",
+          "WH08-L-Orange",
+          "WH08-L-Purple",
+          "WH08-L-White",
+          "WH08-XL-Orange",
+          "WH08-XL-Purple",
+          "WH08-XL-White"
+        ],
+        "product_id_d": 1152.0,
+        "thumbImage_s": "/w/h/wh08-white_main_1.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "WH08-XS-Orange",
+          "WH08-XS-Purple",
+          "WH08-XS-White",
+          "WH08-S-Orange",
+          "WH08-S-Purple",
+          "WH08-S-White",
+          "WH08-M-Orange",
+          "WH08-M-Purple",
+          "WH08-M-White",
+          "WH08-L-Orange",
+          "WH08-L-Purple",
+          "WH08-L-White",
+          "WH08-XL-Orange",
+          "WH08-XL-Purple",
+          "WH08-XL-White"
+        ],
+        "product_id_s": "1152.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/w/h/wh08-white_main_1.jpg",
+        "name_t": "Cassia Funnel Sweatshirt",
+        "doc_index_dt": "2020-07-27T18:39:23.492Z",
+        "gender_ss": [
+          "female"
+        ],
+        "categories_ss": [
+          "2",
+          "24",
+          "35",
+          "21",
+          "30"
+        ],
+        "leaf_categories_ss": [
+          "24",
+          "35",
+          "30"
+        ],
+        "parentCategories_ss": [
+          "1",
+          "21",
+          "7",
+          "20",
+          "29"
+        ],
+        "childCategories_ss": [
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41",
+          "23",
+          "24",
+          "25",
+          "26"
+        ],
+        "catname_ss": [
+          "Default Category",
+          "Hoodies & Sweatshirts",
+          "Performance Fabrics",
+          "Tops",
+          "Women Sale"
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385711236382722
+      },
+      {
+        "name_s": "Hero Hoodie",
+        "cannoical_url_s": "http://magento.ecomtics.nl/hero-hoodie.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/hero-hoodie.html",
+        "smallImage_s": "/m/h/mh07-gray_main_2.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0,
+          54.0
+        ],
+        "doc_id_s": "admin_164.0",
+        "namel_t": "hero hoodie",
+        "description_t": "Gray and black color blocking sets you apart as the Hero Hoodie keeps you warm on the bus, campus or cold mean streets. Slanted outsize front pockets keep your style real . . . convenient. • Full-zip gray and black hoodie. • Ribbed hem. • Standard fit. • Drawcord hood cinch. • Water-resistant coating.",
+        "pupdated_at_dt": "2020-07-25T15:34:00Z",
+        "price_d": 54.0,
+        "namel_s": "hero hoodie",
+        "sku_s": "MH07",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:34:00Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "MH07-XS-Black",
+          "MH07-XS-Gray",
+          "MH07-XS-Green",
+          "MH07-S-Black",
+          "MH07-S-Gray",
+          "MH07-S-Green",
+          "MH07-M-Black",
+          "MH07-M-Gray",
+          "MH07-M-Green",
+          "MH07-L-Black",
+          "MH07-L-Gray",
+          "MH07-L-Green",
+          "MH07-XL-Black",
+          "MH07-XL-Gray",
+          "MH07-XL-Green"
+        ],
+        "product_id_d": 164.0,
+        "thumbImage_s": "/m/h/mh07-gray_main_2.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "MH07-XS-Black",
+          "MH07-XS-Gray",
+          "MH07-XS-Green",
+          "MH07-S-Black",
+          "MH07-S-Gray",
+          "MH07-S-Green",
+          "MH07-M-Black",
+          "MH07-M-Gray",
+          "MH07-M-Green",
+          "MH07-L-Black",
+          "MH07-L-Gray",
+          "MH07-L-Green",
+          "MH07-XL-Black",
+          "MH07-XL-Gray",
+          "MH07-XL-Green"
+        ],
+        "product_id_s": "164.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/m/h/mh07-gray_main_2.jpg",
+        "name_t": "Hero Hoodie",
+        "doc_index_dt": "2020-07-27T18:33:13.584Z",
+        "gender_ss": [
+          "male"
+        ],
+        "categories_ss": [
+          "12",
+          "2",
+          "15"
+        ],
+        "leaf_categories_ss": [
+          "15"
+        ],
+        "parentCategories_ss": [
+          "11",
+          "1",
+          "12"
+        ],
+        "childCategories_ss": [
+          "14",
+          "15",
+          "16",
+          "17",
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41"
+        ],
+        "catname_ss": [
+          "Tops",
+          "Default Category",
+          "Hoodies & Sweatshirts"
+        ],
+        "product_vav_reco_ss": [
+          "Frankie Sweatshirt",
+          "Marco Lightweight Active Hoodie",
+          "Mach Street Sweatshirt",
+          "Argus All-Weather Tank"
+        ],
+        "product_vav_reco_count_is": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          1,
+          28,
+          28
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385711516352513
+      },
+      {
+        "name_s": "Stark Fundamental Hoodie",
+        "cannoical_url_s": "http://magento.ecomtics.nl/stark-fundamental-hoodie.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/stark-fundamental-hoodie.html",
+        "smallImage_s": "/m/h/mh06-blue_main_1.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0
+        ],
+        "doc_id_s": "admin_148.0",
+        "namel_t": "stark fundamental hoodie",
+        "description_t": "You don't need bells and whistles when performance speaks for itself. The full-zip Stark Fundamental Hoodie give just what you need. Hood and fleece lining keep you warm, while breathable fabric and wicking technology won't let you overheat. • Navy specked full zip hoodie. • Ribbed cuffs, banded waist. • Side pockets. • Machine wash/dry.",
+        "pupdated_at_dt": "2020-07-25T15:33:58Z",
+        "price_d": 42.0,
+        "namel_s": "stark fundamental hoodie",
+        "sku_s": "MH06",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:33:58Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "MH06-XS-Black",
+          "MH06-XS-Blue",
+          "MH06-XS-Purple",
+          "MH06-S-Black",
+          "MH06-S-Blue",
+          "MH06-S-Purple",
+          "MH06-M-Black",
+          "MH06-M-Blue",
+          "MH06-M-Purple",
+          "MH06-L-Black",
+          "MH06-L-Blue",
+          "MH06-L-Purple",
+          "MH06-XL-Black",
+          "MH06-XL-Blue",
+          "MH06-XL-Purple"
+        ],
+        "product_id_d": 148.0,
+        "thumbImage_s": "/m/h/mh06-blue_main_1.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "MH06-XS-Black",
+          "MH06-XS-Blue",
+          "MH06-XS-Purple",
+          "MH06-S-Black",
+          "MH06-S-Blue",
+          "MH06-S-Purple",
+          "MH06-M-Black",
+          "MH06-M-Blue",
+          "MH06-M-Purple",
+          "MH06-L-Black",
+          "MH06-L-Blue",
+          "MH06-L-Purple",
+          "MH06-XL-Black",
+          "MH06-XL-Blue",
+          "MH06-XL-Purple"
+        ],
+        "product_id_s": "148.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/m/h/mh06-blue_main_1.jpg",
+        "name_t": "Stark Fundamental Hoodie",
+        "doc_index_dt": "2020-07-27T18:33:13.584Z",
+        "gender_ss": [
+          "male"
+        ],
+        "categories_ss": [
+          "12",
+          "2",
+          "15"
+        ],
+        "leaf_categories_ss": [
+          "15"
+        ],
+        "parentCategories_ss": [
+          "11",
+          "1",
+          "12"
+        ],
+        "childCategories_ss": [
+          "14",
+          "15",
+          "16",
+          "17",
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41"
+        ],
+        "catname_ss": [
+          "Tops",
+          "Default Category",
+          "Hoodies & Sweatshirts"
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385710744600577
+      },
+      {
+        "name_s": "Selene Yoga Hoodie",
+        "cannoical_url_s": "http://magento.ecomtics.nl/selene-yoga-hoodie.html",
+        "product_cannoical_url_s": "http://magento.ecomtics.nl/selene-yoga-hoodie.html",
+        "smallImage_s": "/w/h/wh05-white_main_1.jpg",
+        "page_reachable_b": true,
+        "org_s": "admin",
+        "status_b": false,
+        "linked_product_price_ds": [
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0,
+          42.0
+        ],
+        "doc_id_s": "admin_1114.0",
+        "namel_t": "selene yoga hoodie",
+        "description_t": "The Selene Yoga Hoodie gets you to and from the studio in semi form-fitted comfort. Snug, sleek contours add fashion to function in this free-moving yoga warm up sweatshirt. • Ivory heather full zip 3/4 sleeve hoodie. • Zip pocket at arm for convenient storage. • 24.0\" body length. • 89% Polyester / 11% Spandex.",
+        "pupdated_at_dt": "2020-07-25T15:34:22Z",
+        "price_d": 42.0,
+        "namel_s": "selene yoga hoodie",
+        "sku_s": "WH05",
+        "client_os_type_s": "magento",
+        "image_base_url_s": "http://magento.ecomtics.nl/pub/media/catalog/product",
+        "event_type_s": "productinfo",
+        "pcreated_at_dt": "2020-07-25T15:34:22Z",
+        "orgID_s": "fa673540-57ba-4e02-8c16-28ee0513ae38",
+        "visibility_b": true,
+        "linked_product_sku_ss": [
+          "WH05-XS-Orange",
+          "WH05-XS-Purple",
+          "WH05-XS-White",
+          "WH05-S-Orange",
+          "WH05-S-Purple",
+          "WH05-S-White",
+          "WH05-M-Orange",
+          "WH05-M-Purple",
+          "WH05-M-White",
+          "WH05-L-Orange",
+          "WH05-L-Purple",
+          "WH05-L-White",
+          "WH05-XL-Orange",
+          "WH05-XL-Purple",
+          "WH05-XL-White"
+        ],
+        "product_id_d": 1114.0,
+        "thumbImage_s": "/w/h/wh05-white_main_1.jpg",
+        "has_options_i": 1,
+        "domain_s": "http://magento.ecomtics.nl",
+        "linked_product_image_ss": [
+          "WH05-XS-Orange",
+          "WH05-XS-Purple",
+          "WH05-XS-White",
+          "WH05-S-Orange",
+          "WH05-S-Purple",
+          "WH05-S-White",
+          "WH05-M-Orange",
+          "WH05-M-Purple",
+          "WH05-M-White",
+          "WH05-L-Orange",
+          "WH05-L-Purple",
+          "WH05-L-White",
+          "WH05-XL-Orange",
+          "WH05-XL-Purple",
+          "WH05-XL-White"
+        ],
+        "product_id_s": "1114.0",
+        "typeid_s": "configurable",
+        "image_s": "http://magento.ecomtics.nl/pub/media/catalog/product/w/h/wh05-white_main_1.jpg",
+        "name_t": "Selene Yoga Hoodie",
+        "doc_index_dt": "2020-07-27T18:39:23.492Z",
+        "gender_ss": [
+          "female"
+        ],
+        "categories_ss": [
+          "21",
+          "2",
+          "24"
+        ],
+        "leaf_categories_ss": [
+          "24"
+        ],
+        "parentCategories_ss": [
+          "20",
+          "1",
+          "21"
+        ],
+        "childCategories_ss": [
+          "23",
+          "24",
+          "25",
+          "26",
+          "3",
+          "9",
+          "11",
+          "20",
+          "37",
+          "38",
+          "41"
+        ],
+        "catname_ss": [
+          "Tops",
+          "Default Category",
+          "Hoodies & Sweatshirts"
+        ],
+        "product_vav_reco_ss": [
+          "Neve Studio Dance Jacket"
+        ],
+        "product_vav_reco_count_is": [
+          1
+        ],
+        "eventcount_bucket_i": [
+          1,
+          7,
+          15,
+          30
+        ],
+        "productview_eventcount_i": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "addtowishlist_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "addtocart_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checkout_eventcount_i": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_version_": 1682385711509012481
+      }
+    ]
+  },
+  "facet_counts": {
+    "facet_queries": {
+      "price_d:[0 TO 20]": 0,
+      "price_d:[21 TO 60]": 15,
+      "price_d:[61 TO 100]": 7,
+      "price_d:[101 TO 100]": 0,
+      "gender_ss:(\"male\")": 9,
+      "gender_ss:(\"female\")": 13
+    },
+    "facet_fields": {
+
+    },
+    "facet_ranges": {
+
+    },
+    "facet_intervals": {
+
+    },
+    "facet_heatmaps": {
+
+    }
+  }
+}
