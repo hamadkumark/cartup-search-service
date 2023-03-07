@@ -30,7 +30,7 @@ public class CacheService {
 			ResponseEntity<String> response = restTemplate.postForEntity(cachedSearchUri, searchConfig, String.class);
 			log.info("Request time for cache URI is {} ms", System.currentTimeMillis() - time);
 			if(response.getStatusCode().is2xxSuccessful()) {
-				log.info("Cache service status code : {} - {}", response.getStatusCode(), response.getBody());
+				log.info("Cache service status code : {}", response.getStatusCode());
 				return new JSONObject(response.getBody());
 			} else {
 				log.error("Cache service status code : {} - {}", response.getStatusCode(), response.getBody());
@@ -49,7 +49,7 @@ public class CacheService {
 			ResponseEntity<String> response = restTemplate.getForEntity(cachedSearchUri, String.class);
 			log.info("Request time for cache URI is {} ms", System.currentTimeMillis() - time);
 			if(response.getStatusCode().is2xxSuccessful()) {
-				log.info("Cache service status code : {} - {}", response.getStatusCode(), response.getBody());
+				log.info("Cache service status code : {}", response.getStatusCode());
 				return new JSONObject(response.getBody());
 			} else {
 				log.error("Cache service status code : {} - {}", response.getStatusCode(), response.getBody());

@@ -14,5 +14,7 @@ public class ActionSet {
 	private String field;
 	
 	private boolean isPreProcessor;
+	
+	private String bufferField;
 
 }

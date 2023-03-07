@@ -73,7 +73,7 @@ public class SearchQueryBuilderTask {
     public SearchQueryBuilderTask makeApiCall() throws IOException, CartUpServiceException {
     	
     	try {
-	    	KeywordSuggestorResponse keywordInfo = null;
+	    	KeywordSuggestorResponse keywordInfo = new KeywordSuggestorResponse();
 	        if (EmptyUtil.isNotNull(searchConf) && searchConf.isSpellcheck()){
 	        	if (!params.containsKey("keyword_suggest"))
 	        		keywordInfo = getKeywordSuggest(inputSearch);
@@ -81,22 +81,24 @@ public class SearchQueryBuilderTask {
 	        		Gson gson = new Gson();
 	        		keywordInfo = gson.fromJson(params.get("keyword_suggest"), KeywordSuggestorResponse.class);
 	        	}
-	        	
-	        	if (EmptyUtil.isNotEmpty(keywordInfo.getAnnotations().getSpellcheck().getCompound_suggestions())) {
-	        		filteredSearchQueries.addAll(keywordInfo.getAnnotations().getSpellcheck().getCompound_suggestions());    		
-	        	}
-	        	
-	        	if (EmptyUtil.isNotEmpty(keywordInfo.getAnnotations().getSpellcheck().getProduct_suggestions())) {
-	        		filteredSearchQueries.addAll(keywordInfo.getAnnotations().getSpellcheck().getProduct_suggestions());    		
+	        	if(keywordInfo.getAnnotations() != null) {
+	        		if (EmptyUtil.isNotEmpty(keywordInfo.getAnnotations().getSpellcheck().getCompound_suggestions())) {
+		        		filteredSearchQueries.addAll(keywordInfo.getAnnotations().getSpellcheck().getCompound_suggestions());    		
+		        	}
+		        	
+		        	if (EmptyUtil.isNotEmpty(keywordInfo.getAnnotations().getSpellcheck().getProduct_suggestions())) {
+		        		filteredSearchQueries.addAll(keywordInfo.getAnnotations().getSpellcheck().getProduct_suggestions());    		
+		        	}
 	        	}
 	        	
 	        	if (filteredSearchQueries.size() == 0) 
 	        		filteredSearchQueries.add(inputSearch);
 	        	
 	        	filteredSearchQueries = new ArrayList<String>(new LinkedHashSet<String>(filteredSearchQueries));
-	        	
-	        	if (EmptyUtil.isNotEmpty(keywordInfo.getAnnotations().getCategories().getCat_suggestions())) {
-	        		categories.addAll(keywordInfo.getAnnotations().getCategories().getCat_suggestions());    		
+	        	if(keywordInfo.getAnnotations() != null) {
+	        		if (EmptyUtil.isNotEmpty(keywordInfo.getAnnotations().getCategories().getCat_suggestions())) {
+		        		categories.addAll(keywordInfo.getAnnotations().getCategories().getCat_suggestions());    		
+		        	}
 	        	}
 	        	
 	        	categories = new ArrayList<String>(new LinkedHashSet<String>(categories));

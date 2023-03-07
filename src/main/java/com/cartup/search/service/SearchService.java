@@ -8,12 +8,14 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.solr.common.SolrDocumentList;
@@ -64,27 +66,24 @@ public class SearchService {
 
 	private SearchRepoClient client;
 	
-	private Map<String, Map<String, Map<String, Set<SearchRules>>>> searchRuleMap;
-
-	@Autowired
 	private CacheService cacheService;
 
-	public SearchService() {
+	public SearchService(CacheService cacheService) {
 		gson = new Gson();
 		this.customWidgetRepoClient = RepoFactory.getCustomWidgetRepoClient();
 		this.productRepoClient = RepoFactory.getProductRepoClient();
 		this.client = RepoFactory.getSearchRepoClient();
-		this.searchRuleMap = new LinkedHashMap<>();
+		this.cacheService = cacheService;
 		log.info("SearchService Initialization done");
 	}
 
 	public SearchResult processSearch(Map<String, String> reqParams, SearchRequest searchRequest) throws CartUpServiceException {
 		try {
 			
-			ExecutorService ex = Executors.newSingleThreadExecutor();
-			Future<List<ActionSet>> actionSetFuture = ex.submit(() -> searchAlgorithm(searchRequest));
+//			ExecutorService ex = Executors.newSingleThreadExecutor();
+//			Future<List<ActionSet>> actionSetFuture = ex.submit(() -> searchAlgorithm(searchRequest));
 			
-			
+			List<ActionSet> actionSet = searchAlgorithm(searchRequest);
 			
 			String orgId = (EmptyUtil.isNotEmpty(searchRequest.getOrgId())) ? searchRequest.getOrgId() : reqParams.get(Constants.ORG_ID);
 			String searchQuery = (EmptyUtil.isNotEmpty(searchRequest.getSearchQuery())) ? searchRequest.getSearchQuery() : reqParams.get(Constants.QUERY);
@@ -94,7 +93,6 @@ public class SearchService {
 
 			if (EmptyUtil.isEmpty(searchQuery)){
 				searchQuery = "";
-				// throw new CartUpServiceException("search query is empty");
 			}
 
 			CartUpSearchConfDocument docu = client.GetUsingOrgId(orgId);
@@ -103,38 +101,56 @@ public class SearchService {
 			}
 			log.info("Found search conf for org id {}", orgId);
 			
-			List<ActionSet> actionSet = actionSetFuture.get();
 			AtomicReference<List<SpotDyProductDocument>> pinnedProductsRef = new AtomicReference<>(new ArrayList<>());
-			if(!actionSet.isEmpty()) {
-				actionSet.stream().forEach(action -> {
-					if(action.getType() == 1) {
-						// PIN AN ITEM
-						try {
-							pinnedProductsRef.set(productRepoClient.List(searchRequest.getOrgId(), action.getValue()));
-						} catch (CartUpRepoException e) {
-							log.error("Error occured while fetching the pinned items {}", action.getValue());
+			AtomicReference<List<String>> productsToBeRemovedRef = new AtomicReference<>(new ArrayList<>());
+			try {
+//				List<ActionSet> actionSet = actionSetFuture.get();
+				if(!actionSet.isEmpty()) {
+					actionSet.stream().forEach(action -> {
+						if(action.getType() == 1) {
+							// PIN AN ITEM
+							try {
+								pinnedProductsRef.set(productRepoClient.List(searchRequest.getOrgId(), action.getValue()));
+							} catch (CartUpRepoException e) {
+								log.error("Error occured while fetching the pinned items {}", action.getValue());
+							}
 						}
-					}
-					if(action.getType() == 2) {
-						// REMOVE KEYWORD
-						StringBuilder newSearchQuery = new StringBuilder();
-						action.getValue().stream().forEach(keywordToRemove -> {
-							newSearchQuery.append(searchRequest.getSearchQuery().replaceAll(keywordToRemove, ""));
-						});
-						searchRequest.setSearchQuery(newSearchQuery.toString());
-					}
-					if(action.getType() == 3) {
-						// TODO BOOST THE SPECIFIED FIELD AND VALUE
-						
-					}
-				});
+						if(action.getType() == 2) {
+							// REMOVE KEYWORD
+							StringBuilder newSearchQuery = new StringBuilder();
+							action.getValue().stream().forEach(keywordToRemove -> {
+								newSearchQuery.append(searchRequest.getSearchQuery().replaceAll(keywordToRemove, ""));
+							});
+							searchRequest.setSearchQuery(newSearchQuery.toString());
+						}
+						if(action.getType() == 3) {
+							// REMOVE ITEM
+							productsToBeRemovedRef.set(action.getValue());
+						}
+						if(action.getType() == 4) {
+							// REPLACE A KEYWORD
+							StringBuilder newSearchQuery = new StringBuilder();
+							action.getValue().stream().forEach(keywordToReplace -> {
+								newSearchQuery.append(searchRequest.getSearchQuery().replaceAll(keywordToReplace, action.getBufferField()));
+							});
+							searchRequest.setSearchQuery(newSearchQuery.toString());
+						}
+						if(action.getType() == 5) {
+							// TODO BOOST THE SPECIFIED FIELD AND VALUE
+							
+						}
+					});
+				}
+			} catch(Exception e) {
+				log.error("Exception occured while loading search config", e);			
 			}
+			
 			
 			SearchQueryBuilderTask task = new SearchQueryBuilderTask(orgId, reqParams, searchQuery, docu, searchRequest);
 			String solrQuery = task.build();
 			Map<String, Facet> facetMap = task.getFacetMap();
 			ProductsFacetResult res =  client.Execute(orgId, solrQuery, 1000);
-			SearchResult searchResult = toSearchResult(res, facetMap, pinnedProductsRef)
+			SearchResult searchResult = toSearchResult(res, facetMap, pinnedProductsRef, productsToBeRemovedRef)
 					.setCurrency(docu.getCurrency())
 					.setSortEntity(docu.getSortEntity())
 					.setNumberofdocs(res.getNumFound())
@@ -148,7 +164,7 @@ public class SearchService {
 		}
 	}
 
-	private SearchResult toSearchResult(ProductsFacetResult result, Map<String, Facet> facetMap, AtomicReference<List<SpotDyProductDocument>> pinnedProductsRef){
+	private SearchResult toSearchResult(ProductsFacetResult result, Map<String, Facet> facetMap, AtomicReference<List<SpotDyProductDocument>> pinnedProductsRef, AtomicReference<List<String>> productsToBeRemovedRef){
 		List<ProductInfo> docs = new ArrayList<>();
 		List<SpotDyProductDocument> pinnedProducts = pinnedProductsRef.get();
 		pinnedProducts.addAll(result.getResult());
@@ -163,7 +179,7 @@ public class SearchService {
 						.setDescription(doc.getDescriptionT())
 						.setDiscountedPrice(String.valueOf(doc.getDiscountePriceD()))
 						.setRating(String.valueOf(doc.getRatingD()));
-				if (doc.getVariantB()){
+				if (Optional.ofNullable(doc.getVariantB()).isPresent()){
 					VariantInfo variantInfo = new VariantInfo(doc.getLinkedProductNameSs(), doc.getLinkedProductPriceDs(),
 							doc.getLinkedProductDiscountedpriceDs(), doc.getStockIDs(), doc.getLinkedProductSkuSs(),
 							doc.getLinkedProductIdLs(), doc.getLinkedVariantIdSs());
@@ -173,6 +189,8 @@ public class SearchService {
 				docs.add(info);
 			}
 		}
+		
+		List<ProductInfo> resultDocs = docs.stream().filter(doc -> !productsToBeRemovedRef.get().contains(doc.getName().toLowerCase())).collect(Collectors.toList());
 
 		Set<FacetEntity> facets = new HashSet<>();
 		if (EmptyUtil.isNotEmpty(result.getFacetCounts())){
@@ -217,67 +235,69 @@ public class SearchService {
 			Collections.sort(orderedFacets, new FacetComparator());
 		}
 
-		return new SearchResult().setDocs(docs).setFacetcount(orderedFacets);
+		return new SearchResult().setDocs(resultDocs).setFacetcount(orderedFacets);
 	}
 
 	public List<ActionSet> searchAlgorithm(SearchRequest searchRequest) {
-
-		Map<String, Map<String, Set<SearchRules>>> cacheMap = this.gson.fromJson(this.cacheService.getSearchConfig(searchRequest.getOrgId()).toString(), new TypeToken<Map<String, Map<String, Set<SearchRules>>>>() {}.getType());
-		
-		String searchQuery = searchRequest.getSearchQuery();
-		
-		String[] searchKeywordList = searchQuery.split(" ");
-
-		String startKeyword = searchKeywordList[0];
-		int length = searchKeywordList.length;
-		String endKeyword = searchKeywordList[length-1];
-
-		Set<SearchRules> possibleSearchRuleSet = new HashSet<>();
-		
-		Map<String, Set<SearchRules>> ruleMap = this.gson.fromJson(cacheMap.get("ruleLookupMap").toString(), new TypeToken<Map<String, Set<SearchRules>>>() {}.getType());
-
-		// Check for scenario what if the given search query keyword matches startsWith and endsWith
-		for(String keyword : searchKeywordList) {
-			String startsWithKey = String.format("%d*_*%s", 1, keyword);
-			if(ruleMap.containsKey(startsWithKey)) {
-				possibleSearchRuleSet.addAll(ruleMap.get(startsWithKey));
-			}
-			String containsWithKey = String.format("%d*_*%s", 2, keyword);
-			if(ruleMap.containsKey(containsWithKey)) {
-				possibleSearchRuleSet.addAll(ruleMap.get(containsWithKey));
-			}
-			String endsWithKey = String.format("%d*_*%s", 3, keyword);
-			if(ruleMap.containsKey(endsWithKey)) {
-				possibleSearchRuleSet.addAll(ruleMap.get(endsWithKey));
-			}
-		}
 		List<ActionSet> actionSet = new ArrayList<>();
-		for(SearchRules searchRule : possibleSearchRuleSet) {
-			StringBuilder ruleExpression = new StringBuilder();
-			for(RuleSet ruleSet : searchRule.getRuleSet()) {
-				String operator = StringUtils.isNotBlank(ruleSet.getOperator())? (ruleSet.getOperator().equals("AND") ? "&&" : ruleSet.getOperator().equals("OR") ? "||" : StringUtils.EMPTY) : StringUtils.EMPTY;
-				if(ruleSet.getType() == 1)
-					if(ruleSet.getValue().equals(startKeyword)) {
-						ruleExpression.append(true).append(operator);
-					}
+		try {
 
-				if(ruleSet.getType() == 2) {
-					ruleExpression.append(searchQuery.contains(ruleSet.getValue())).append(operator);
+			Map<String, Object> cacheMap = this.gson.fromJson(this.cacheService.getSearchConfig(searchRequest.getOrgId()).toString(), new TypeToken<Map<String, Object>>() {}.getType());
+			
+			String searchQuery = searchRequest.getSearchQuery();
+			
+			String[] searchKeywordList = searchQuery.split(" ");
+
+			String startKeyword = searchKeywordList[0];
+			int length = searchKeywordList.length;
+			String endKeyword = searchKeywordList[length-1];
+
+			Set<SearchRules> possibleSearchRuleSet = new HashSet<>();
+			
+			Map<String, Set<SearchRules>> ruleMap = this.gson.fromJson(cacheMap.get("ruleLookupMap").toString(), new TypeToken<Map<String, Set<SearchRules>>>() {}.getType());
+
+			// Check for scenario what if the given search query keyword matches startsWith and endsWith
+			for(String keyword : searchKeywordList) {
+				String startsWithKey = String.format("%d*_*%s", 1, keyword);
+				if(ruleMap.containsKey(startsWithKey)) {
+					possibleSearchRuleSet.addAll(ruleMap.get(startsWithKey));
 				}
-
-				if(ruleSet.getType() == 3) {
-					if(ruleSet.getValue().equals(endKeyword)) {
-						ruleExpression.append(true).append(operator);
-					}
+				String containsWithKey = String.format("%d*_*%s", 2, keyword);
+				if(ruleMap.containsKey(containsWithKey)) {
+					possibleSearchRuleSet.addAll(ruleMap.get(containsWithKey));
+				}
+				String endsWithKey = String.format("%d*_*%s", 3, keyword);
+				if(ruleMap.containsKey(endsWithKey)) {
+					possibleSearchRuleSet.addAll(ruleMap.get(endsWithKey));
 				}
 			}
-			// using Spring's SpEL to evaluate the boolean expression
-			ExpressionParser parser = new SpelExpressionParser();
-			Expression exp = parser.parseExpression(ruleExpression.toString());
-			if(exp.getValue(Boolean.class)) {
-				actionSet.addAll(searchRule.getActionSet());
-				break;
+			for(SearchRules searchRule : possibleSearchRuleSet) {
+				StringBuilder ruleExpression = new StringBuilder();
+				for(RuleSet ruleSet : searchRule.getRuleSet()) {
+					String operator = StringUtils.isNotBlank(ruleSet.getOperator())? (ruleSet.getOperator().equals("AND") ? "&&" : ruleSet.getOperator().equals("OR") ? "||" : StringUtils.EMPTY) : StringUtils.EMPTY;
+					if(ruleSet.getType() == 1) {
+						ruleExpression.append(ruleSet.getValue().equals(startKeyword)).append(operator);
+					}
+					if(ruleSet.getType() == 2) {
+						ruleExpression.append(searchQuery.contains(ruleSet.getValue())).append(operator);
+					}
+
+					if(ruleSet.getType() == 3) {
+						ruleExpression.append(ruleSet.getValue().equals(endKeyword)).append(operator);
+					}
+				}
+				// using Spring's SpEL to evaluate the boolean expression
+				ExpressionParser parser = new SpelExpressionParser();
+				Expression exp = parser.parseExpression(ruleExpression.toString());
+				if(exp.getValue(Boolean.class)) {
+					actionSet.addAll(searchRule.getActionSet());
+					break;
+				}
 			}
+			
+			
+		} catch (Exception e) {
+			log.error("Error while search computation", e);
 		}
 		if(!actionSet.isEmpty()) {
 			return actionSet;

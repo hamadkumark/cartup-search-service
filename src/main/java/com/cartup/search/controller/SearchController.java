@@ -17,6 +17,7 @@ import com.cartup.commons.exceptions.CartUpServiceException;
 import com.cartup.commons.repo.RepoFactory;
 import com.cartup.search.modal.SearchRequest;
 import com.cartup.search.modal.SearchResult;
+import com.cartup.search.service.CacheService;
 import com.cartup.search.service.SearchService;
 import com.google.gson.Gson;
 
@@ -29,11 +30,11 @@ public class SearchController {
 
     private SearchService service;
 
-    public SearchController() {
+    public SearchController(CacheService cacheService) {
         try{
             gson = new Gson();
             RepoFactory.loadConfiguration();
-            this.service = new SearchService();
+            this.service = new SearchService(cacheService);
         } catch (Exception e){
             logger.error("Failed to initialize widget controller", e);
         }
