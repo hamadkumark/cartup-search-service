@@ -10,6 +10,7 @@
 	<groupId>com.cartup</groupId>
 	<artifactId>cartup-search-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>demo</name>
 	<description>Search service for cartup</description>
 	<properties>
